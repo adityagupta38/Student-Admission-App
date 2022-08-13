@@ -1,0 +1,8 @@
+Create a student addmission aaplication where user can:
+
+1. add a student details
+2. update the student details
+3. delete the student details
+4. read the student details
+
+Student in the database table(model) should contain----> roll number(unique), Name,Age , City, class.
