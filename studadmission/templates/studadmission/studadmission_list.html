@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stud List</title>
+</head>
+{% extends 'home.html' %}
+<body>
+{% block content %}
+    <div class="text-center">
+        <a href="/"> <button class="btn btn-success w-25">Home</button></a>
+    </div><br>
+     <div class="text-center">
+        <a href="/addstud"> <button class="btn btn-info w-25">Student Admission Page</button></a>
+    </div>
+
+  {% if studadmission_list %}
+       <div class="container text-center bg-white w-50 p-3" style="margin-top: 10%">
+  <table class="table table-light">
+      <thead>
+      <tr class="text-center"><h2 class="alert alert-info">Students List</h2></tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Class</th>
+      <th colspan="3">Click To Perform Actions</th>
+      </thead>
+      <tbody>
+      {% for stud in studadmission_list %}
+      <tr>
+          <td>{{ stud.roll_number }}</td>
+          <td>{{ stud.name }}</td>
+          <td>{{ stud.age }}</td>
+          <td>{{ stud.city }}</td>
+          <td>{{ stud.std }}</td>
+          <td><a href="/studdetail{{ stud.id }}">Detail</a></td>
+          <td><a href="/updatestud{{ stud.id }}">Update</a></td>
+          <td><a href="/delstud{{ stud.id }}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+       </div>
+      {% else %}
+       <div class="container text-center bg-white w-50 p-3" style="margin-top: 5%">
+           <h4 class="alert alert-warning">None Of the Students Admitted Yet! <br><br>Click On <a href="/addstud"> <button class="btn btn-success w-25">Add Student</button></a>   To Add A Student</h4>
+      </div>
+  {% endif %}
+{% endblock %}
+</body>
+</html>

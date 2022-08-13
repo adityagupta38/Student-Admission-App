@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students List</title>
+</head>
+{% extends 'home.html' %}
+<body>
+{% block content %}
+    <div class="text-center">
+        <a href="/"> <button class="btn btn-success w-25">Home</button></a>
+    </div>
+
+  {% if students %}
+      <div class="container text-center bg-white w-50 p-3" style="margin-top: 5%">
+  <table class="table table-light">
+      <thead>
+      <tr class="text-center"><h2 class="alert alert-info">Students List</h2></tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Click To Perform Actions</th>
+      </thead>
+      <tbody>
+      {% for stud in students %}
+      <tr>
+          <td>{{ stud.roll_number }}</td>
+          <td>{{ stud.name }}</td>
+          <td>{{ stud.std }}</td>
+          <td><a href="/studdetail{{ stud.id }}">Detail</a></td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+  </div>
+  {% else %}
+   <div class="container text-center bg-white w-50 p-5" style="margin-top: 10%">
+        <h4 class="alert alert-info">None Of The Students Admitted Yet</h4>
+    </div>
+  {% endif %}
+{% endblock %}
+</body>
+</html>

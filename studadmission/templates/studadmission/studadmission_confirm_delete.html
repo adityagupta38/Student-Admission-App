@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Page</title>
+</head>
+{% extends 'home.html' %}
+<body>
+{% block content %}
+ <div class="container text-center bg-white w-50 p-3" style="margin-top: 10%">
+    <h2 class="alert alert-warning">Are You Sure?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <h2>Confirm Delete</h2>
+    <button type="submit" class="btn btn-success">Yes</button>
+        <a href="/studlist"> <button type="button" class="btn btn-danger">No</button></a>
+    </form>
+    </div>
+{% endblock %}
+
+</body>
+</html>

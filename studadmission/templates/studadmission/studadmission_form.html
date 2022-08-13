@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admission Form</title>
+</head>
+{% extends 'home.html' %}
+<body>
+{% block content %}
+    {% load widget_tweaks %}
+    <div class="text-center">
+        <a href="/"> <button class="btn btn-success w-25">Home</button></a>
+    </div><br>
+    <div class="text-center">
+        <a href="/studlist"> <button class="btn btn-info w-25">Modify Student Details</button></a>
+    </div>
+    <div class="container text-center bg-white w-50 p-3" style="margin-top: 3%">
+    <h2 class="alert alert-info">Add/Update Student</h2>
+        {% if form.errors %}
+            {% for field in form.errors.values %}
+                {{ field }}
+            {% endfor %}
+        {% endif %}
+    <form method="post">
+    {% csrf_token %}
+        <div class="row">
+        <div class="col"><label>Roll No</label></div>
+        <div class="col">{% render_field form.roll_number class="form-control" placeholder="Enter Roll No" %}</div>
+        </div><br>
+        <div class="row">
+        <div class="col-sm-6"><label>Name</label></div>
+        <div class="col-sm-6">{% render_field form.name class="form-control" placeholder="Enter Name" %}</div>
+        </div><br>
+        <div class="row">
+        <div class="col-sm-6"><label>Age</label></div>
+        <div class="col-sm-6">{% render_field form.age class="form-control" placeholder="Enter Age" %}</div>
+        </div><br>
+        <div class="row">
+        <div class="col-sm-6"><label>City</label></div>
+        <div class="col-sm-6">{% render_field form.city class="form-control" placeholder="Enter City" %}</div>
+        </div><br>
+        <div class="row">
+        <div class="col-sm-6"><label>Class</label></div>
+        <div class="col-sm-6">{% render_field form.std class="form-control" %}</div>
+        </div><br>
+    <button type="submit" class="btn btn-success w-25">Add</button>
+    </form>
+    </div>
+{% endblock %}
+</body>
+</html>

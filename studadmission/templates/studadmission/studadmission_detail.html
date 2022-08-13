@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Detail</title>
+</head>
+{% extends 'home.html' %}
+<body>
+{% block content %}
+     <div class="text-center">
+        <a href="/"> <button class="btn btn-success w-25">Home</button></a>
+    </div>
+    <div class="container text-center bg-white w-50 p-3" style="margin-top: 6%">
+    <h2 class="alert alert-info">Student Detail</h2>
+     <h4 class="alert alert-info">
+         <div class="row p-3">
+             <div class="col-sm-6 w-50 text-sm-end p-2">
+                 Roll No :<br>
+                 Name    :<br>
+                 Age     :<br>
+                 City    :<br>
+                 Class   :<br>
+             </div>
+             <div class="col-sm-6 w-25 text-sm-start p-2" >
+                 {{ studadmission.roll_number }}<br>
+                 {{ studadmission.name }}<br>
+                 {{ studadmission.age }}<br>
+                 {{ studadmission.city }}<br>
+                 {{ studadmission.std }}<br>
+             </div>
+         </div>
+     </h4>
+ </div>
+{% endblock %}
+</body>
+</html>
